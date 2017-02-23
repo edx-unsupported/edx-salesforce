@@ -16,6 +16,8 @@ from edx_salesforce.choices import COUNTRIES_BY_CODE, EDUCATION_BY_CODE
 from edx_salesforce.edx_data import fetch_user_data
 from edx_salesforce.models import (Campaign, CampaignMember, DiscountCode, Lead, Opportunity, OpportunityContactRole,
                                    OpportunityLineItem, Pricebook2, PricebookEntry, Product2)
+from edx_salesforce.utils import parse_user_full_name
+
 
 STATUS_IN_SYNC = 'In Sync'
 STATUS_SYNCHRONIZED = 'Synchronized'
@@ -263,21 +265,6 @@ class Command(BaseCommand):
 
         return pricebook_entry, created
 
-    def _parse_user_full_name(self, full_name):
-        """
-        Parses user full name into first and last name strings.
-        """
-        # Remove leading/trailing whitespace
-        # Condense intermediate whitespace
-        full_name = ' '.join(full_name.strip().split())
-        try:
-            # Attempt to identity last name as right-most contiguous substring of non-space characters
-            first_name, last_name = full_name.rsplit(' ', 1)
-        except ValueError:
-            first_name = None
-            last_name = full_name
-        return first_name, last_name
-
     def _sync_opportunity(self, lead, course_purchase_data):
         """
         Creates or updates an Opportunity object in Salesforce for the course purchase
@@ -361,7 +348,7 @@ class Command(BaseCommand):
         Returns:
             boolean, True if the model was updated, False if the model was not updated.
         """
-        first_name, last_name = self._parse_user_full_name(user_data['full_name'])
+        first_name, last_name = parse_user_full_name(user_data['full_name'])
         fields = (
             'email',
             'first_name',
