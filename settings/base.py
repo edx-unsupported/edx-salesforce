@@ -10,7 +10,7 @@ root = lambda *x: join(abspath(PROJECT_ROOT), *x)
 
 path.append(root('apps'))
 
-SECRET_KEY = os.environ.get('EDX_INTEGRATIONS_SECRET_KEY', 'insecure-secret-key')
+SECRET_KEY = os.environ.get('EDX_SALESFORCE_SECRET_KEY', 'insecure-secret-key')
 
 # Application definition
 INSTALLED_APPS = [
@@ -20,7 +20,7 @@ THIRD_PARTY_APPS = [
 ]
 
 PROJECT_APPS = [
-    'edx_integrations.salesforce',
+    'edx_salesforce',
 ]
 
 
@@ -109,5 +109,3 @@ LOGGING = {
         },
     }
 }
-
-
