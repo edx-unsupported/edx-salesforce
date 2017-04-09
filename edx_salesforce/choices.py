@@ -45,7 +45,7 @@ COUNTRIES = [
     ('Congo CG', 'Congo CG'),
     ('Congo (the Democratic Republic of the) CD', 'Congo (the Democratic Republic of the) CD'),
     ('Cook Islands CK', 'Cook Islands CK'), ('Costa Rica CR', 'Costa Rica CR'),
-    (u"Cote d'Ivoire CI", u"Cote d'Ivoire CI"), ('Croatia HR', 'Croatia HR'),
+    ("Cote d'Ivoire CI", "Cote d'Ivoire CI"), ('Croatia HR', 'Croatia HR'),
     ('Cuba CU', 'Cuba CU'), ('Curacao CW', 'Curacao CW'),
     ('Cyprus CY', 'Cyprus CY'), ('Czech Republic CZ', 'Czech Republic CZ'),
     ('Denmark DK', 'Denmark DK'), ('Djibouti DJ', 'Djibouti DJ'),

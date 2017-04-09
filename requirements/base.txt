@@ -1,5 +1,4 @@
 beatbox==32.1
 Django==1.10.3
 django-salesforce==0.6.9
-MySQL-python==1.2.5
 unicodecsv==0.14.1

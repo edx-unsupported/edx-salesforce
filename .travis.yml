@@ -12,11 +12,10 @@ before_install:
   - pip install --upgrade pip
 
 install:
-  - pip install -r requirements/travis.txt
+  - pip install -r requirements/test.txt
 
 script:
-  - tox -e quality
-  - tox
+  - make validate
 
 after_success:
   - codecov
@@ -29,4 +28,3 @@ deploy:
   distributions: sdist bdist_wheel
   on:
     tags: true
-    condition: '$TOXENV = quality'
