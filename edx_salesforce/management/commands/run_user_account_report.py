@@ -99,7 +99,7 @@ class Command(BaseCommand):
         )
 
         with open(output_filename, 'wb') as csvfile:  # pylint: disable=open-builtin
-            writer = csv.writer(csvfile, delimiter=str(','))
+            writer = csv.writer(csvfile, delimiter=',')
             writer.writerow(REPORT_HEADER)
             for user in users:
                 writer.writerow([
