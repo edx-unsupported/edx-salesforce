@@ -73,6 +73,7 @@ QUERIES = {
         p.year_of_birth AS year_of_birth,
         p.level_of_education AS level_of_education,
         p.bio AS bio,
+        p.gender as gender,
         u.date_joined AS registration_date
 
         FROM auth_user AS u

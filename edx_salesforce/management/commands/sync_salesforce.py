@@ -358,6 +358,7 @@ class Command(BaseCommand):
             'language',
             'level_of_education',
             'interest',
+            'gender',
             'registration_date',
         )
         data = (
@@ -369,6 +370,7 @@ class Command(BaseCommand):
             settings.LANGUAGES_BY_CODE.get(user_data['language']),
             EDUCATION_BY_CODE.get((user_data['level_of_education'] or '').lower()),
             user_data['bio'],
+            user_data['gender'],
             # Truncate microseconds because Salesforce DateTime fields do not support microsecond precision
             pytz.utc.localize(user_data['registration_date'].replace(microsecond=0)),
         )
